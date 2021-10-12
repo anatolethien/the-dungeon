@@ -1,3 +1,5 @@
+package Skill;
+
 public class Skill {
     // constructors
     public Skill(String name, int power, int mana) {

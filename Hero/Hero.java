@@ -1,3 +1,5 @@
+package Hero;
+
 public class Hero {
     // constructors
     public Hero(String name, String description, int attack, int defense, int speed) {
