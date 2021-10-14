@@ -1,14 +1,51 @@
 package Game;
+import Hero.*;
 import java.util.Scanner;
 
 public class Game {
+    // constructors
+    public Game() {
+        this.displayTitleScreen();
+        // this.promptUser();
+        // if (this.scanUserInput().equals("play")) {
+        //     this.displayHeroSelectionScreen();
+        //     if (this.scanUserInput().equals("victor")) {
+        //         Victor hero = new Victor();
+        //         hero.printStatus();
+        //     }
+        // } else if (this.scanUserInput().equals("exit")) {
+        //     this.displayTitleScreen();
+        //     System.exit(0);
+        // }
+    }
     // properties
-    private Scanner scanner = new Scanner(System.in);
-    private String[] heroList = {"Ariana", "Arsen", "Candice", "Charles", "Robin", "Victor"};
+    private Scanner in = new Scanner(System.in);
+    private String[] heroList = {
+        "Ariana",
+        "Arsen",
+        "Candice",
+        "Charles",
+        "Robin",
+        "Victor"
+    };
     // methods
-    public String scanUserInput() {
+    public void promptUser() {
         System.out.printf(" > ");
-        return this.scanner.nextLine().toLowerCase().trim();
+        this.interpretCommand(this.in.nextLine().toLowerCase().trim().replaceAll(" +", " ").split(" ", 2));
+    }
+    public void interpretCommand(String[] userCommand) {
+        String command = userCommand[0];
+        if (userCommand.length > 1) {
+            String option = userCommand[1];
+        }
+        if (command.equals("play")) {
+            this.displayHeroSelectionScreen();
+        } else if (command.equals("exit")) {
+            System.exit(0);
+        } else {
+            System.out.printf("ERROR: Unknown command: [%s]%n", command);
+            this.promptUser();
+        }
     }
     public void displayTitleScreen() {
         System.out.printf("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█%n");
@@ -36,6 +73,7 @@ public class Game {
         System.out.printf("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█%n");
         //                                    ||                  ||                  ||
         //                                    48                  68                  88
+        this.promptUser();
     }
     public void displayHeroSelectionScreen() {
         System.out.printf("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█%n");
@@ -63,5 +101,6 @@ public class Game {
         System.out.printf("█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█%n");
         //                                    ||                  ||                  ||
         //                                    48                  68                  88
+        this.promptUser();
     }
 }
