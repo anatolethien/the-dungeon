@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="java-game" default="jar" basedir=".">
+    <target name="clear">
+        <delete dir="bin"/>
+        <delete file="the-dungeon.jar"/>
+    </target>
+    <target name="mkdir">
+        <mkdir dir="bin"/>
+    </target>
+    <target name="compile" depends="clear, mkdir">
+        <javac srcdir="src" includes="**" destdir="bin"/>
+    </target>
+    <target name="jar" depends="compile">
+        <jar destfile="the-dungeon.jar" basedir="bin" compress="true" >
+            <manifest>
+                <attribute name="Main-Class" value="dungeon.Main"/>
+            </manifest>
+        </jar>
+    </target>
+    <target name="info">
+        <echo>This is an Apache Ant build file!</echo>
+    </target>
+</project>
