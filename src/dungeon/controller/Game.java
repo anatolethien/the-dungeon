@@ -5,14 +5,15 @@ import view.Terminal;
 public class Game {
     // constructors
     public Game() {
-        Terminal terminal = new Terminal();
-        while (running) {
-            terminal.prompt();
-            System.out.println(terminal.input[0]);
-            running = false;
-        }
+        terminal = new Terminal();
+        // Command command = new Command(terminal.prompt());
+        // command.eval("titleScreen");
+        // Menu class ?
+        // the program will instanciate a Battle class with each game parameter
+        // Battle battle = new Battle(Ariana);
     }
     // properties
-    public static boolean running = true;
+    private Terminal terminal;
+    private Command command;
     // methods
 }
