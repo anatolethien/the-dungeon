@@ -8,16 +8,13 @@
         <mkdir dir="bin"/>
     </target>
     <target name="compile" depends="clear, mkdir">
-        <javac srcdir="src" includes="**" destdir="bin"/>
+        <javac srcdir="src" includes="**" destdir="bin" includeantruntime="false"/>
     </target>
     <target name="jar" depends="compile">
-        <jar destfile="the-dungeon.jar" basedir="bin" compress="true" >
+        <jar destfile="the-dungeon.jar" basedir="bin" compress="true">
             <manifest>
                 <attribute name="Main-Class" value="dungeon.Main"/>
             </manifest>
         </jar>
-    </target>
-    <target name="info">
-        <echo>This is an Apache Ant build file!</echo>
     </target>
 </project>
